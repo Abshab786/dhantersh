@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪔 Shubh Dhanteras - Special Gift for Sizu from AB Shab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background & Confetti Overlay -->
+    <div class="festive-bg-glow"></div>
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <div class="floating-elements">
+        <span>🪔</span><span>💖</span><span>🪙</span><span>✨</span><span>🪔</span><span>💖</span>
+    </div>
+
+    <!-- MAIN GAME SCREEN -->
+    <main class="main-screen" id="mainGameScreen">
+        <div class="container">
+
+            <!-- Header Greetings -->
+            <header class="hero">
+                <div class="festive-badge">✨ शुभ धनतेरस मोंहत्सव ✨</div>
+                <h1 class="festive-title">Shubh Dhanteras <span>Sizu!</span></h1>
+
+                <div class="greeting-box">
+                    <p class="greeting-text">🪔 May Goddess Lakshmi bless you with endless joy, wealth, and prosperity!</p>
+                    <div class="tag-group">
+                        <span class="tag-sizu">💖 Special Gift for: <strong>Sizu</strong></span>
+                        <span class="tag-ab">🎁 Sent with Love by: <strong>AB Shab</strong></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Shuffle Game Section -->
+            <section class="game-section">
+
+                <!-- Game Status Indicator -->
+                <div class="game-status" id="gameStatus">
+                    👀 Take a peek at the cash prizes! Tap <strong>"Shuffle Gifts"</strong> to start.
+                </div>
+
+                <!-- Action Controls -->
+                <div class="controls">
+                    <button id="shuffleBtn" class="btn-shuffle">🔀 Shuffle Gifts!</button>
+                </div>
+
+                <!-- 4 3D Gift Cards Grid -->
+                <div class="cards-grid" id="cardsGrid">
+
+                    <!-- Card 1 -->
+                    <div class="card-item" data-index="0" tabindex="0" role="button" aria-label="Gift Card 1">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-pattern">🪔</div>
+                                <div class="card-title">Gift #1</div>
+                                <div class="card-hint">Tap to Pick</div>
+                            </div>
+                            <div class="card-back">
+                                <div class="diya-icon">🪙</div>
+                                <div class="prize-value" id="prize-0">₹2,000</div>
+                                <div class="prize-label">Dhanteras Gift</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-item" data-index="1" tabindex="0" role="button" aria-label="Gift Card 2">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-pattern">🪔</div>
+                                <div class="card-title">Gift #2</div>
+                                <div class="card-hint">Tap to Pick</div>
+                            </div>
+                            <div class="card-back">
+                                <div class="diya-icon">🪙</div>
+                                <div class="prize-value" id="prize-1">₹1,500</div>
+                                <div class="prize-label">Dhanteras Gift</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-item" data-index="2" tabindex="0" role="button" aria-label="Gift Card 3">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-pattern">🪔</div>
+                                <div class="card-title">Gift #3</div>
+                                <div class="card-hint">Tap to Pick</div>
+                            </div>
+                            <div class="card-back">
+                                <div class="diya-icon">🪙</div>
+                                <div class="prize-value" id="prize-2">₹1,000</div>
+                                <div class="prize-label">Dhanteras Gift</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card-item" data-index="3" tabindex="0" role="button" aria-label="Gift Card 4">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-pattern">🪔</div>
+                                <div class="card-title">Gift #4</div>
+                                <div class="card-hint">Tap to Pick</div>
+                            </div>
+                            <div class="card-back">
+                                <div class="diya-icon">🪙</div>
+                                <div class="prize-value" id="prize-3">₹500</div>
+                                <div class="prize-label">Dhanteras Gift</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                &copy; 2026 Shubh Dhanteras Special. Dedicated to <strong>Sizu</strong> from <strong>AB Shab</strong>.
+                <div class="footer-pin-link">
+                    <button id="openPinModalBtn" class="btn-pin-trigger">🔐 Master Reset</button>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- FULL SCREEN CELEBRATION VIEW -->
+    <div class="celebration-screen" id="celebrationScreen">
+        <div class="celebration-content">
+            <div class="sparkle-header">🪔 💖 🎉 🪙 ✨</div>
+            <h1 class="cong-title">Shubh Dhanteras Sizu!</h1>
+            <p class="cong-subtitle">You picked the lucky card and unlocked your special Dhanteras gift:</p>
+
+            <!-- Big Golden Prize Card -->
+            <div class="grand-prize-card">
+                <div class="grand-diya">🪙</div>
+                <div class="grand-amount" id="finalRewardAmount">₹2,000</div>
+                <div class="grand-label">DHANTERAS CASH GIFT</div>
+            </div>
+
+            <!-- Giver Badge -->
+            <div class="giver-tag">
+                🎁 Gift Sent with Lots of Love by: <strong>AB Shab</strong>
+            </div>
+
+            <div class="fair-play-badge">
+                🔒 Fair Play Verified: 100% Genuine Dhanteras Luck! No Cheating Allowed.
+            </div>
+
+            <p class="blessing-text">
+                ✨ May your life be filled with brightness, joy, good health, and prosperous blessings forever! ✨
+            </p>
+
+            <div class="celebration-pin-area">
+                <button id="openPinModalBtnCel" class="btn-pin-trigger">🔐 Master Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASKED PIN INPUT MODAL -->
+    <div class="pin-modal-overlay" id="pinModal">
+        <div class="pin-modal-box">
+            <div class="pin-modal-icon">🔐</div>
+            <h3>Enter Secret PIN</h3>
+            <p>Enter Master PIN to reset the game:</p>
+
+            <input type="password" id="pinInput" class="pin-field" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" aria-label="Secret PIN">
+            <div class="pin-error-msg" id="pinErrorMsg"></div>
+
+            <div class="pin-btn-group">
+                <button id="submitPinBtn" class="btn-pin-submit">Verify &amp; Reset</button>
+                <button id="cancelPinBtn" class="btn-pin-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

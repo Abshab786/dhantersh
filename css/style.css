@@ -1,0 +1,694 @@
+/* 🪔 Shubh Dhanteras Special - Sizu & AB Shab Gift Theme */
+
+:root {
+    --bg-main: #0c0514;
+    --bg-card: #1c0c2b;
+    --gold: #ffd700;
+    --gold-glow: rgba(255, 215, 0, 0.45);
+    --pink: #ff2a75;
+    --pink-glow: rgba(255, 42, 117, 0.35);
+    --text-light: #fff6e5;
+    --text-muted: #cbb4e3;
+    --font-heading: 'Rozha One', 'Poppins', serif;
+    --font-sans: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ambient Background Glow */
+.festive-bg-glow {
+    position: fixed;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 20%, rgba(255, 215, 0, 0.25) 0%, rgba(255, 42, 117, 0.18) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.8rem;
+    opacity: 0.15;
+    animation: floatAnim 10s infinite alternate ease-in-out;
+}
+
+@keyframes floatAnim {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Main Game Screen */
+.main-screen {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.main-screen.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.festive-badge {
+    display: inline-block;
+    padding: 0.35rem 1.15rem;
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.festive-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.85rem;
+    line-height: 1.15;
+}
+
+.festive-title span {
+    background: linear-gradient(135deg, var(--gold), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px var(--gold-glow);
+}
+
+.greeting-box {
+    background: rgba(28, 12, 43, 0.75);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    border-radius: 18px;
+    padding: 1.15rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.greeting-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.tag-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tag-sizu {
+    background: rgba(255, 42, 117, 0.18);
+    border: 1px solid rgba(255, 42, 117, 0.45);
+    color: #ff7ba4;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+
+.tag-ab {
+    background: rgba(255, 215, 0, 0.18);
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    color: var(--gold);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+
+/* Game Section */
+.game-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-status {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    color: var(--gold);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 1.75rem;
+    width: 100%;
+    max-width: 650px;
+    transition: all 0.3s ease;
+}
+
+.controls {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-shuffle {
+    background: linear-gradient(135deg, var(--gold), #ff8c00);
+    color: #000;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px var(--gold-glow);
+    touch-action: manipulation;
+}
+
+.btn-shuffle:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 35px var(--gold-glow);
+}
+
+.btn-shuffle:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+/* 4 Cards Grid - Optimized for Mobile */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+    perspective: 1200px;
+}
+
+/* 3D Flip Card Item */
+.card-item {
+    height: 220px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.card-item.show-back .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-item.face-down .card-inner {
+    transform: rotateY(0deg);
+}
+
+.card-item.revealed .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Front & Back Styling */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 0.75rem;
+}
+
+/* Face Down Side (Front) */
+.card-front {
+    background: linear-gradient(135deg, #1f0b33, #3a155c);
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-item:hover:not(.disabled):not(.revealed) .card-front {
+    border-color: #fff;
+    box-shadow: 0 12px 30px var(--pink-glow);
+    transform: scale(1.03);
+}
+
+.card-pattern {
+    font-size: 2.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--gold);
+}
+
+.card-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Face Up Side (Back) */
+.card-back {
+    background: linear-gradient(135deg, #2c1247, #4d1c7a);
+    border: 2px solid var(--gold);
+    transform: rotateY(180deg);
+    box-shadow: 0 0 25px var(--gold-glow);
+}
+
+.diya-icon {
+    font-size: 2.25rem;
+    margin-bottom: 0.4rem;
+}
+
+.prize-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 12px var(--gold-glow);
+}
+
+.prize-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Dramatic Multi-Loop 3D Card Shuffle Animations */
+.card-item.shuffle-anim-1 { animation: shuffleLoop1 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+.card-item.shuffle-anim-2 { animation: shuffleLoop2 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+.card-item.shuffle-anim-3 { animation: shuffleLoop3 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+.card-item.shuffle-anim-4 { animation: shuffleLoop4 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+
+@keyframes shuffleLoop1 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(140px, -30px) rotate(15deg) scale(1.1); z-index: 10; }
+    40% { transform: translate(-120px, 25px) rotate(-12deg) scale(0.92); z-index: 2; }
+    60% { transform: translate(110px, -15px) rotate(10deg) scale(1.06); z-index: 9; }
+    80% { transform: translate(-60px, 20px) rotate(-8deg) scale(0.96); z-index: 4; }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes shuffleLoop2 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(-130px, 25px) rotate(-15deg) scale(0.92); z-index: 2; }
+    40% { transform: translate(150px, -25px) rotate(14deg) scale(1.08); z-index: 10; }
+    60% { transform: translate(-100px, 20px) rotate(-10deg) scale(0.94); z-index: 3; }
+    80% { transform: translate(80px, -15px) rotate(8deg) scale(1.04); z-index: 8; }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes shuffleLoop3 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(110px, 30px) rotate(10deg) scale(1.06); z-index: 8; }
+    40% { transform: translate(-140px, -30px) rotate(-16deg) scale(0.9); z-index: 1; }
+    60% { transform: translate(130px, 15px) rotate(12deg) scale(1.07); z-index: 10; }
+    80% { transform: translate(-80px, -20px) rotate(-6deg) scale(0.95); z-index: 3; }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes shuffleLoop4 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(-150px, -20px) rotate(-12deg) scale(0.94); z-index: 3; }
+    40% { transform: translate(90px, 35px) rotate(16deg) scale(1.1); z-index: 10; }
+    60% { transform: translate(-120px, -15px) rotate(-14deg) scale(0.92); z-index: 2; }
+    80% { transform: translate(70px, 15px) rotate(6deg) scale(1.03); z-index: 7; }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+.card-item.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+/* FULL-SCREEN CELEBRATION VIEW */
+.celebration-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 30%, #2b0e45 0%, #0c0514 85%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow-y: auto;
+}
+
+.celebration-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.celebration-content {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.85);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.celebration-screen.active .celebration-content {
+    transform: scale(1);
+}
+
+.sparkle-header {
+    font-size: 2.75rem;
+    margin-bottom: 0.75rem;
+    animation: sparkleBounce 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes sparkleBounce {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-8px) scale(1.08); }
+}
+
+.cong-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+    text-shadow: 0 0 25px var(--gold-glow);
+}
+
+.cong-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+/* Grand Prize Card */
+.grand-prize-card {
+    background: linear-gradient(135deg, #38125a, #1f0836);
+    border: 3px solid var(--gold);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    box-shadow: 0 0 50px var(--gold-glow);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.grand-diya {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.grand-amount {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 30px var(--gold-glow);
+    line-height: 1.1;
+}
+
+.grand-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+}
+
+/* Giver Tag */
+.giver-tag {
+    background: rgba(255, 42, 117, 0.2);
+    border: 1px solid var(--pink);
+    color: #ff7ba4;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+/* Anti-Cheating Fair Play Badge */
+.fair-play-badge {
+    background: rgba(0, 255, 135, 0.1);
+    border: 1px solid rgba(0, 255, 135, 0.35);
+    color: #00ff87;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    margin-bottom: 1.25rem;
+}
+
+.blessing-text {
+    font-size: 0.95rem;
+    color: #00ff87;
+    max-width: 420px;
+    margin-bottom: 1rem;
+}
+
+/* Footer & Discreet Pin Links */
+.footer {
+    text-align: center;
+    padding: 1.75rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.15);
+    margin-top: 2.5rem;
+    width: 100%;
+}
+
+.footer-pin-link, .celebration-pin-area {
+    margin-top: 0.75rem;
+}
+
+.btn-pin-trigger {
+    background: transparent;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: var(--text-muted);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    opacity: 0.6;
+}
+
+.btn-pin-trigger:hover {
+    opacity: 1;
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* MASKED SECRET PIN MODAL */
+.pin-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.pin-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pin-modal-box {
+    background: #190a28;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 2.25rem 2rem;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.pin-modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pin-modal-box h3 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+}
+
+.pin-modal-box p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+}
+
+.pin-field {
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+    background: #10051b;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    color: var(--gold);
+    outline: none;
+    margin-bottom: 0.5rem;
+}
+
+.pin-field:focus {
+    box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.pin-error-msg {
+    color: #ff3366;
+    font-size: 0.82rem;
+    min-height: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.pin-btn-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-pin-submit {
+    flex-grow: 1;
+    background: linear-gradient(135deg, var(--gold), #ff8c00);
+    color: #000;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-pin-cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Confetti Container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    opacity: 0.9;
+    animation: confettiFall 3.5s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+}
+
+/* MOBILE SCREEN OPTIMIZATION (< 768px) */
+@media (max-width: 768px) {
+    .container { padding: 1.5rem 1rem; }
+    .festive-title { font-size: 2.35rem; }
+    .greeting-box { padding: 1rem; }
+    .greeting-text { font-size: 0.9rem; }
+    .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+    .card-item { height: 175px; }
+    .card-pattern { font-size: 2.2rem; }
+    .card-title { font-size: 0.9rem; }
+    .prize-value { font-size: 1.4rem; }
+    .btn-shuffle { width: 100%; padding: 0.9rem 1.5rem; font-size: 1.05rem; }
+    .cong-title { font-size: 2.25rem; }
+    .grand-prize-card { padding: 1.75rem 1.25rem; }
+    .grand-diya { font-size: 2.75rem; }
+    .grand-amount { font-size: 3rem; }
+}
+
+/* SMALL MOBILE SCREENS (< 380px) */
+@media (max-width: 380px) {
+    .card-item { height: 155px; }
+    .prize-value { font-size: 1.2rem; }
+    .grand-amount { font-size: 2.5rem; }
+}
